@@ -9,7 +9,10 @@ Habitat is ued for comparing to state-of-the-art models, while the more realisti
 ## How to Use
 Due to the different physics engines of the two simulators, the model needs to be run in the two different environments. Details can be found in the corresponding README files in the `Habitat` and `iGibson` directories, respectively.
 
-## Main Models
+## Model
+### CX for path integration
+
+
 ### MB for visual learning and memory
 Insect MB, a shallow circuit, is capable of rapid associative learning. The MB, as a visual memory in our models, is assumed to be a two-layered neural network, consisting of
 - visual projection neurons (PN), receiving preprocessed visual inputs,
