@@ -9,6 +9,19 @@ Habitat is ued for comparing to state-of-the-art models, while the more realisti
 ## How to Use
 Due to the different physics engines of the two simulators, the model needs to be run in the two different environments. Details can be found in the corresponding README files in the `Habitat` and `iGibson` directories, respectively.
 
+## Main Models
+### MB for visual learning and memory
+Insect MB, a shallow circuit, is capable of rapid associative learning. The MB, as a visual memory in our models, is assumed to be a two-layered neural network, consisting of
+- visual projection neurons (PN), receiving preprocessed visual inputs,
+- Kenyon cells (KC), encoding any PN activity as a latent, sparse pattern, by multiplying the PN-KC weight matrix,
+- MB output neurons (MBON), computing visual familiarity/novelty of the KC pattern, by multiplying the KC-MBON weight matrix.
+- DopAminergic Neurons (DAN), activated by collision-related events and triggering learning.
+where
+- the PN-KC matrix is randomly initialised to be binary and sparse, and fixed throughout a simulated experiment; and
+- the KC-MBON matrix is initialised to be one, as learning is achieved by synaptic depression (i.e., decreasing weights, which is more consistent with the real MB).
+
+Other than the specific learning rule, the most important parameters of these objects are N_pn (the number of PN), N_pn_perkc (the sparsity of the PN-KC connectivity), N_kc (the number of KC) and S_kc (the sparsity of KC activity).
+
 ## Licenses
 The MB-CX integrative model is different from the MB-only model in our previous work for visual route following,
 but we reuse part of the code from [insect-inspired-route-following](https://github.com/yihe-61wu/insect-inspired-route-following) (under GNU GPL 3.0 license), particularly those for low-level perception and control in the iGibson simulators.
