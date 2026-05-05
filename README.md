@@ -7,7 +7,7 @@ The MB-CX integrative model is tested in two simulators: Habitat and iGibson.
 Habitat is ued for comparing to state-of-the-art models, while the more realistic physics engine of iGibson permits validation of the model's robustness against perturbation.
 
 ## How to Use
-Due to the different physics engines of the two simulators, the model needs to be run in two different environments. Details can be found in the corresponding README files in the `Habitat` and `iGibson` directories, respectively.
+Due to the different physics engines of the two simulators, the model needs to be run in the two different environments. Details can be found in the corresponding README files in the `Habitat` and `iGibson` directories, respectively.
 
 ## Licenses
 The MB-CX integrative model is different from the MB-only model in our previous work for visual route following,
