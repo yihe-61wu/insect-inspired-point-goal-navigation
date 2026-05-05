@@ -1,0 +1,20 @@
+# @package _global_
+
+defaults:
+  - /habitat: habitat_config_base
+  - /habitat/task: pointnav
+  - /habitat/task/measurements: soft_spl
+  - /habitat/simulator/sensor_setups@habitat.simulator.agents.main_agent: rgb_agent
+  - /habitat/dataset/pointnav: gibson     # habitat_test   # mp3d #
+  - _self_
+
+habitat:
+  environment:
+    max_episode_steps: 500
+  simulator:
+    agents:
+      main_agent:
+        sim_sensors:
+          rgb_sensor:
+            width: 256
+            height: 256
