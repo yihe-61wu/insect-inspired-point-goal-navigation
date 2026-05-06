@@ -34,12 +34,13 @@ After installing both simulators, one should be able to test run some scripts bu
 To fully replicate our work, at least the Habitat simulations in our paper, it is necessary to download the Gibson 4+ dataset, which requires an official license (free for research use).
 
 
-## Model
-### CX for path integration
+## The Insect-inspired Model
+### CX
+The insect CX is a shallow neural circuit, playing a critical role in path integration, i.e. dead reckoning.
+To better align with the Habitat challenge, we abstract the CX into a simple algorithm for GPS+Compass.
 
-
-### MB for visual learning and memory
-Insect MB, a shallow circuit, is capable of rapid associative learning. The MB, as a visual memory in our models, is assumed to be a two-layered neural network, consisting of
+### MB
+The insect MB, also a shallow circuit, is capable of rapid associative learning. The MB, as a visual memory in our models, is assumed to be a two-layered neural network, consisting of
 - visual projection neurons (PN), receiving preprocessed visual inputs,
 - Kenyon cells (KC), encoding any PN activity as a latent, sparse pattern, by multiplying the PN-KC weight matrix,
 - MB output neurons (MBON), computing visual familiarity/novelty of the KC pattern, by multiplying the KC-MBON weight matrix.
@@ -48,7 +49,7 @@ where
 - the PN-KC matrix is randomly initialised to be binary and sparse, and fixed throughout a simulated experiment; and
 - the KC-MBON matrix is initialised to be one, as learning is achieved by synaptic depression (i.e., decreasing weights, which is more consistent with the real MB).
 
-Other than the specific learning rule, the most important parameters of these objects are N_pn (the number of PN), N_pn_perkc (the sparsity of the PN-KC connectivity), N_kc (the number of KC) and S_kc (the sparsity of KC activity).
+Other than the specific learning rule, the most important parameters of the MB are N_pn (the number of PN), N_pn_perkc (the sparsity of the PN-KC connectivity), N_kc (the number of KC) and S_kc (the sparsity of KC activity).
 
 ## Licenses
 The MB-CX integrative model is different from the MB-only model in our previous work for visual route following,
