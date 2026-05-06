@@ -7,7 +7,32 @@ The MB-CX integrative model is tested in two simulators: Habitat and iGibson.
 Habitat is ued for comparing to state-of-the-art models, while the more realistic physics engine of iGibson permits validation of the model's robustness against perturbation.
 
 ## How to Use
-Due to the different physics engines of the two simulators, the model needs to be run in the two different environments. Details can be found in the corresponding README files in the `Habitat` and `iGibson` directories, respectively.
+Due to the different physics engines, the model needs to be run in the two different simulators.
+Two independet `conda` environments are recommended, because the two simulators require many common dependencies but of different versions, e.g. `OpenCV`.
+We have been using two independent environments throughout development and testing on an `Ubuntu 22.04 LTS` laptop with `Python 3.8.13`.
+
+Initial steps to install the two simulators are shown below, and more details can be found in the corresponding README files in the `Habitat` and `iGibson` directories, respectively.
+
+### Installing Habitat
+1. Install [`habitat-sim`](https://github.com/facebookresearch/habitat-sim) (v0.3.1):
+   1. Following README instructions for the `conda` option, but ignoring everything including and after **Testing**.
+   2. Uninstall and (re)install `numpy` (v1.23) using `pip`, due to its compatiblitiy with `habitat-lab`.
+2. Install [`habita-lab`](https://github.com/facebookresearch/habitat-lab) (v0.3.1):
+   1. Following README instructions for the `conda` option, but not repeating the first steps as `habitat-sim` has been installed.
+   2. Double-checking the versions of `habitat-sim` and `habitat-lab`, which should be the same.
+3. Download assets under `habitat-lab/data` by `git lfs pull`.
+   1. The download commands executed when installing `habitat-sim` and `habitat-lab` did not download the data; they only create pointers.
+   2. At this stage, the jupyter notebooks under `habitat-lab/examples` should work.
+   3. However, to make python files run, there is a conflict between `opencv-python` and `PyQt5`. The solution is to uninstall `opencv-python` and install `opencv-python-headless` instead, using `pip`.
+
+### Installing iGibson
+Please install all dependencies required by [iGibson 2.0](https://stanfordvl.github.io/iGibson/installation.html) first.
+Additionally with `numpy` and `matplotlib`, one can reproduce simulations and visualisations (given simulated data).
+
+### Reconstruction Datasets
+After installing both simulators, one should be able to test run some scripts but in very few scenes.
+To fully replicate our work, at least the Habitat simulations in our paper, it is necessary to download the Gibson 4+ dataset, which requires an official license (free for research use).
+
 
 ## Model
 ### CX for path integration
